@@ -1,0 +1,14 @@
+{
+  "name": "ateira-minimba",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Ateira MiniMBA adaptive learning MVP",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check public/data.js && node --check public/app.js",
+    "test": "node tests/smoke.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

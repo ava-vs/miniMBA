@@ -1,0 +1,36 @@
+name: ateira-minimba
+
+services:
+  app:
+    build:
+      context: .
+      target: runtime
+    image: ateira-minimba:local
+    ports:
+      - "${APP_PORT:-4173}:4173"
+    environment:
+      PORT: "4173"
+      APP_ORIGIN: "${APP_ORIGIN:-http://localhost:4173}"
+      OPENROUTER_API_KEY: "${OPENROUTER_API_KEY:-}"
+      OPENROUTER_MODEL: "${OPENROUTER_MODEL:-}"
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+
+  test:
+    build:
+      context: .
+      target: test
+    image: ateira-minimba:test
+    profiles:
+      - test
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m
+    security_opt:
+      - no-new-privileges:true

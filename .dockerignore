@@ -1,0 +1,13 @@
+.git
+.agents
+.codex
+.env
+node_modules
+npm-debug.log*
+*.log
+.DS_Store
+Thumbs.db
+SPECIFICATION.md
+Spec 1.md
+plan 1 MBA for designer.md
+План образовательного приложения.txt
