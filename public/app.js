@@ -195,7 +195,7 @@
         <section class="welcome-copy">
           <div class="welcome-brand"><span class="brand-mark">A</span><span>Ateira <span class="muted">· MiniMBA</span></span></div>
           <span class="eyebrow">Бизнес начинается с решения</span>
-          <h1 class="display">Из дизайнера —<br><em>в того,</em><br>который решает.</h1>
+          <h1 class="display">Путь мастера<br><em>управления</em></h1>
           <p class="welcome-lead">Практический бизнес-тренажёр: финансы, данные и стратегия через ваш собственный проект.</p>
           <div class="welcome-actions">
             <button class="btn coral" data-action="start-onboarding">Начать бесплатно ${icon("arrow")}</button>
