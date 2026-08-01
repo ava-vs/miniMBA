@@ -70,6 +70,8 @@ async function run() {
     assert.match(app, /Путь мастера/);
     assert.match(app, /<em>управления<\/em>/);
     assert.doesNotMatch(app, /Из дизайнера/);
+    assert.match(app, /Соглашаюсь, продолжить/);
+    assert.doesNotMatch(app, /Открыть мой маршрут/);
 
     const cssResponse = await fetch("http://127.0.0.1:4174/styles.css");
     assert.equal(cssResponse.status, 200);
@@ -83,6 +85,8 @@ async function run() {
     assert.match(css, /\.avatar-custom img/);
     assert.match(css, /@media \(max-width: 980px\)/);
     assert.match(css, /@media \(max-height: 680px\)/);
+    assert.match(css, /\.consent input \{ width:22px; height:22px/);
+    assert.match(css, /grid-template-columns:minmax\(0,\.42fr\) minmax\(0,\.58fr\)/);
 
     const dataResponse = await fetch("http://127.0.0.1:4174/data.js");
     assert.equal(dataResponse.status, 200);

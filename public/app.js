@@ -238,7 +238,7 @@
           </div>
           <div class="onboard-actions">
             <button class="btn ghost" data-action="onboard-back" ${step === 0 ? "disabled" : ""}>${icon("back")} Назад</button>
-            <button class="btn coral" data-action="onboard-next" ${step === 3 && !state.profile.consent ? "disabled" : ""}>${step === 3 ? "Открыть мой маршрут" : "Продолжить"} ${icon("arrow")}</button>
+            <button class="btn coral" data-action="onboard-next" ${step === 3 && !state.profile.consent ? "disabled" : ""}>${step === 3 ? "Соглашаюсь, продолжить" : "Продолжить"} ${icon("arrow")}</button>
           </div>
         </section>
       </main>`;
