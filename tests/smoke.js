@@ -72,6 +72,7 @@ async function run() {
     assert.doesNotMatch(app, /Из дизайнера/);
     assert.match(app, /Соглашаюсь, продолжить/);
     assert.doesNotMatch(app, /Открыть мой маршрут/);
+    assert.match(app, /class="module-topics"/);
 
     const cssResponse = await fetch("http://127.0.0.1:4174/styles.css");
     assert.equal(cssResponse.status, 200);
@@ -89,10 +90,18 @@ async function run() {
     assert.match(css, /@media \(max-height: 680px\)/);
     assert.match(css, /\.consent input \{ width:22px; height:22px/);
     assert.match(css, /grid-template-columns:minmax\(0,\.42fr\) minmax\(0,\.58fr\)/);
+    assert.match(css, /\.module-card\.blue \.module-num/);
+    assert.match(css, /\.module-card\.green \.module-num/);
 
     const dataResponse = await fetch("http://127.0.0.1:4174/data.js");
     assert.equal(dataResponse.status, 200);
     const data = await dataResponse.text();
+    assert.match(data, /Лидерство и команда/);
+    assert.match(data, /Самопознание и психотипы без ярлыков/);
+    assert.match(data, /Конфликты: интересы и договорённости/);
+    assert.match(data, /Управление проектами/);
+    assert.match(data, /Ресурсы, бюджет и риски/);
+    assert.match(data, /Ключевые показатели эффективности \(KPI\)/);
     assert.match(data, /Контракт_35_000_AED\.mp4/);
     assert.match(data, /Бизнес_как_система\.mp4/);
     assert.match(data, /Выбор_1_сегмента\.mp4/);

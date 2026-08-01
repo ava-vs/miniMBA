@@ -422,7 +422,7 @@
     const lockedModule = index > 0 && !hasAccess();
     const meta = module.comingSoon ? "Скоро" : lockedModule ? "Нужен доступ" : index === 0 ? `${weeklyProgress()}% пройдено` : "4 недели";
     return `<article class="module-card card ${module.color}">
-      <div class="module-head" data-action="toggle-module"><div class="module-num">${module.number}</div><div><h3>${module.title}</h3><p>${module.subtitle}</p></div><div class="module-meta"><strong>${meta}</strong>${module.comingSoon ? "Релиз 2" : "Практический модуль"}</div></div>
+      <div class="module-head" data-action="toggle-module"><div class="module-num">${module.number}</div><div class="module-copy"><h3>${module.title}</h3><p>${module.subtitle}</p>${module.topics?.length ? `<div class="module-topics" aria-label="Темы модуля">${module.topics.map(topic => `<span>${esc(topic)}</span>`).join("")}</div>` : ""}</div><div class="module-meta"><strong>${meta}</strong>${module.comingSoon ? "Следующий этап" : "Практический модуль"}</div></div>
       ${open ? `<div class="week-list">${module.weeks.map((w,i) => weekTemplate(w,i)).join("")}</div>` : ""}
     </article>`;
   }
