@@ -3,6 +3,7 @@
 
   const D = window.MINIMBA_DATA;
   const STORAGE_KEY = "ateira-minimba-state-v1";
+  const IS_STATIC_PAGES = window.location.hostname.endsWith(".github.io");
 
   const iconPaths = {
     home: '<path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M9.5 20v-6h5v6"/>',
@@ -132,6 +133,14 @@
     state = deepMerge(state, patch);
     saveState();
     if (rerender) render();
+  }
+
+  function staticTutorReply(message) {
+    const text = String(message || "").toLowerCase();
+    if (text.includes("выруч") && text.includes("прибыл")) return "Выручка — все продажи за период, а прибыль — то, что остаётся после расходов. Укажите цену проекта, прямые затраты и часы команды — проверим вашу попытку.";
+    if (text.includes("безубыточ")) return "Точка безубыточности показывает, сколько проектов нужно продать для покрытия постоянных расходов. Формула: постоянные расходы ÷ вклад в покрытие одного проекта. Какие значения вы подставите?";
+    if (text.includes("марж")) return "Проверьте три шага: показатели относятся к одному периоду; прибыль рассчитана после нужной группы расходов; маржа равна прибыли, делённой на выручку. Пришлите числа — разберём логику.";
+    return "Сначала сформулируйте свою гипотезу или покажите расчёт. Затем проверьте исходные данные, единицы измерения и связь вывода с управленческим решением.";
   }
 
   function esc(value) {
@@ -938,6 +947,13 @@
     const messagesEl = document.getElementById("ai-messages");
     messagesEl.insertAdjacentHTML("beforeend", `<div class="message user">${esc(message)}</div><div class="message assistant loading" id="ai-loading">Проверяю логику…</div>`);
     messagesEl.scrollTo({ top:99999, behavior:"smooth" });
+    if (IS_STATIC_PAGES) {
+      const reply = staticTutorReply(message);
+      state.messages.push({ role:"assistant", text:reply }); saveState();
+      const loading = document.getElementById("ai-loading");
+      if (loading) { loading.classList.remove("loading"); loading.textContent = reply; loading.removeAttribute("id"); }
+      return;
+    }
     try {
       const response = await fetch("/api/ai", { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({ message, context:"Неделя 1: выручка, прибыль, денежный поток и экономика дизайн-проекта" }) });
       const result = await response.json();

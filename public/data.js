@@ -8,21 +8,21 @@ window.MINIMBA_DATA = {
       lesson: "Неделя 1 · Экономика проекта",
       title: "Контракт на 35 000 AED",
       description: "Разбор выручки, затрат, прибыли и кассового разрыва на сквозном кейсе Studio North.",
-      src: "/materials/first_lessons/Контракт_35_000_AED.mp4"
+      src: "./materials/first_lessons/Контракт_35_000_AED.mp4"
     },
     {
       id: "business-system",
       lesson: "Вводный урок 1",
       title: "Бизнес как система",
       description: "Как связаны клиент, ценность, способ её доставки и экономика бизнеса.",
-      src: "/materials/first_lessons/Бизнес_как_система.mp4"
+      src: "./materials/first_lessons/Бизнес_как_система.mp4"
     },
     {
       id: "segment-choice",
       lesson: "Вводный урок 2 · Стратегия",
       title: "Выбор одного сегмента",
       description: "Почему стратегия требует фокуса и как выбрать поле, на котором бизнес будет побеждать.",
-      src: "/materials/first_lessons/Выбор_1_сегмента.mp4"
+      src: "./materials/first_lessons/Выбор_1_сегмента.mp4"
     }
   ],
   resources: [
@@ -30,25 +30,25 @@ window.MINIMBA_DATA = {
       title: "Рабочая тетрадь",
       description: "Входная диагностика, кейсы, шаблоны и план управленческого эксперимента.",
       format: "DOCX · участнику",
-      href: "/materials/first_lessons/MiniMBA_Рабочая_тетрадь_уроки_1-2_FINAL.docx"
+      href: "./materials/first_lessons/MiniMBA_Рабочая_тетрадь_уроки_1-2_FINAL.docx"
     },
     {
       title: "Руководство преподавателя",
       description: "Сценарии двух занятий, ключи к расчётам, вопросы и рубрика оценки.",
       format: "DOCX · преподавателю",
-      href: "/materials/first_lessons/MiniMBA_Руководство_преподавателя_уроки_1-2_FINAL.docx"
+      href: "./materials/first_lessons/MiniMBA_Руководство_преподавателя_уроки_1-2_FINAL.docx"
     },
     {
       title: "Бизнес как система",
       description: "Презентация о связи клиентской ценности, операций и экономики.",
       format: "PPTX · урок 1",
-      href: "/materials/first_lessons/MiniMBA_Урок_1_Бизнес_как_система.pptx"
+      href: "./materials/first_lessons/MiniMBA_Урок_1_Бизнес_как_система.pptx"
     },
     {
       title: "Стратегия как набор выборов",
       description: "Презентация о фокусе, способе победы, отказах и экспериментах.",
       format: "PPTX · урок 2",
-      href: "/materials/first_lessons/MiniMBA_Урок_2_Стратегический_выбор.pptx"
+      href: "./materials/first_lessons/MiniMBA_Урок_2_Стратегический_выбор.pptx"
     }
   ],
   competencies: [

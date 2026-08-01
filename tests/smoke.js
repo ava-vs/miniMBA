@@ -20,6 +20,8 @@ async function run() {
     const html = await pageResponse.text();
     assert.match(html, /Ateira MiniMBA/);
     assert.match(html, /public\/app\.js|\/app\.js/);
+    assert.match(html, /src="\.\/app\.js"/);
+    assert.match(html, /href="\.\/styles\.css"/);
 
     const appResponse = await fetch("http://127.0.0.1:4174/app.js");
     assert.equal(appResponse.status, 200);
@@ -63,6 +65,8 @@ async function run() {
     assert.match(app, /data-avatar-choice/);
     assert.match(app, /id="avatar-upload"/);
     assert.match(app, /function handleAvatarUpload/);
+    assert.match(app, /IS_STATIC_PAGES/);
+    assert.match(app, /function staticTutorReply/);
 
     const cssResponse = await fetch("http://127.0.0.1:4174/styles.css");
     assert.equal(cssResponse.status, 200);
@@ -85,6 +89,8 @@ async function run() {
     const videoUrl = encodeURI("http://127.0.0.1:4174/materials/first_lessons/Контракт_35_000_AED.mp4");
     assert.match(data, /Деловой английский/);
     assert.doesNotMatch(data, /Business English/);
+    assert.match(data, /src: "\.\/materials\/first_lessons/);
+    assert.doesNotMatch(data, /src: "\/materials\/first_lessons/);
 
     const videoResponse = await fetch(videoUrl, { headers: { Range: "bytes=0-1023" } });
     assert.equal(videoResponse.status, 206);
