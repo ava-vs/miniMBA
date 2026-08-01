@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Ateira MiniMBA">
+  <rect width="64" height="64" rx="17" fill="#173634"/>
+  <path fill="#f7f1e5" d="M11 48h7.5l3.8-9h19.3l3.8 9H53L35.7 13h-7.3L11 48Zm14-15.3 7-16.4 6.9 16.4H25Z"/>
+  <circle cx="51" cy="13" r="5" fill="#ed735a"/>
+</svg>

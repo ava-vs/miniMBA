@@ -22,6 +22,12 @@ async function run() {
     assert.match(html, /public\/app\.js|\/app\.js/);
     assert.match(html, /src="\.\/app\.js"/);
     assert.match(html, /href="\.\/styles\.css"/);
+    assert.match(html, /rel="icon" href="\.\/favicon\.svg" type="image\/svg\+xml"/);
+
+    const faviconResponse = await fetch("http://127.0.0.1:4174/favicon.svg");
+    assert.equal(faviconResponse.status, 200);
+    assert.match(faviconResponse.headers.get("content-type") || "", /image\/svg\+xml/);
+    assert.match(await faviconResponse.text(), /aria-label="Ateira MiniMBA"/);
 
     const appResponse = await fetch("http://127.0.0.1:4174/app.js");
     assert.equal(appResponse.status, 200);
