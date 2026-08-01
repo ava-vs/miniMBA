@@ -78,6 +78,8 @@ async function run() {
     const css = await cssResponse.text();
     assert.match(css, /\.intro-layout/);
     assert.match(css, /\.intro-stage/);
+    assert.match(css, /\.management-loop \{[^}]*grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
+    assert.match(css, /@media \(max-width: 1600px\)/);
     assert.match(css, /\.intro-route-card/);
     assert.match(css, /\.institution-compare/);
     assert.match(css, /\.profile-editor/);
